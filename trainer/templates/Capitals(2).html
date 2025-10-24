@@ -1,0 +1,435 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Capitals Trainer</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href=https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css> --> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  <style>
+   #con1 {
+     background-color:lightgray;
+     font-family: Arial;
+     color: black;
+ } 
+
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    /*.navbar {
+      margin-bottom: 25%;
+      border-radius: 0;
+
+    }*/
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+  /*.carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      /*margin: auto;
+      min-height:200px;
+  }*/
+
+   /*Hide the carousel text when the screen is less than 600 pixels wide 
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+  }*/
+
+  /* .but {
+    background-color: green;
+  } */
+
+   #menhu {
+    background-color: lightgray;
+   }
+  #myRadioForm {
+    display: inline-block;  
+  }
+
+  #NuProj {
+    background-color:lightcoral;
+  }
+
+#op {
+  visibility: hidden;
+}
+
+  #clear{
+  color:black;
+  background-color: yellow;
+  }
+
+ .but {
+ background-color: green;
+ color: white;
+ 
+}
+ #ans {
+  visibility: hidden;
+  }
+
+  body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+  </style>
+</head>
+<body>
+
+<!-- <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav> -->
+
+
+  
+<div class="container text-center" id= "con1">    
+  <h1>Train Your Memory Of Geography</h1>
+  <h1>Name the Capital City</h1>
+  <p>For Each Nation That Appears Name The Capital</p></h3><br>
+</div>
+<div class="container text-center" id= "con2"> 
+  <div class="row">
+    <div class="col-sm-4">
+      <p><h5>Press Random For A Nation<h5></p>
+      <h3> <div>
+      <button type="button" onclick= "random()" class="but" id="Randm">Random</button>
+      <button type="button" onclick= "answer()" class="but">Answer</button>
+      <button type="button" onclick= "clean()" class="but" id="clear">Clear</button>
+      <p></p> 
+      <h3><p id="demo"></p><h3>
+      <!-- <br> -->
+      <h3><p id="ans"></p></h3>
+      </div><h3>
+        <br>
+      <p id="op"></p>
+    </div>
+    <div class="col-sm-1"> 
+      <!-- <p><h1><h1></p> -->
+      
+</div>
+<div class="col-sm-7">
+  <div class="well" id = "NuProj">
+  <p><h1>Current Project<h1></p>
+  </div>
+  <div class="well" id="menhu">
+   <p>Train For (select region)<p>
+    <form id="myRadioForm">
+        <input type="radio" id="option1" name="myOptions" value="value1">
+        <label for="option1">Americas</label>
+        <input type="radio" id="option2" name="myOptions" value="value2">
+        <label for="option2">Africa</label>
+        <input type="radio" id="option3" name="myOptions" value="value3">
+        <label for="option3">Oceania</label>
+        <input type="radio" id="option4" name="myOptions" value="value4">
+        <label for="option4">Europe</label>
+        <input type="radio" id="option5" name="myOptions" value="value5">
+        <label for="option5">Asia</label>
+        <input type="radio" id="option6" name="myOptions" value="value6">
+        <label for="option6">World</label>
+    </form>
+   </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer>
+<script src= "Americas.js"></script>
+<script src= "Africa.js"></script>
+<script src="Oceania.js"></script>
+<script src="Europe.js"></script>
+<script src="Asia.js"></script>
+<script src="Capitals.js"></script>
+</body>
+
+<script>
+
+const radioForm = document.getElementById("myRadioForm");
+
+  radioForm.addEventListener('change', (event) => {
+    // event.target will be the specific radio button that was changed
+    if (event.target.name === "myOptions" && event.target.checked) { // Ensure it's part of your radio group
+      // console.log('Selected option:', event.target.value);
+      document.getElementById("op").innerHTML = event.target.value;
+    }
+  });
+
+
+
+
+function random() {
+    
+    var p
+    var max 
+    var min;
+    var oc = document.getElementById("op").innerHTML;   
+    // window.alert(oc);
+
+
+
+  
+   if(oc === "value1") {
+    var max = 34
+    var min = 0
+    var C = Object.keys(Amer)
+    let ran = Math.floor(Math.random() * (max - min + 1)) + min;
+    var B = ran;
+    const chanceKey = C[B];
+    document.getElementById("demo").innerHTML = chanceKey;
+    var L = Amer[chanceKey];
+    document.getElementById("ans").innerHTML= L;
+     // window.alert(C);
+
+   } 
+    else if(oc === "value2") {
+    var max = 53
+    var min = 0
+    var D = Object.keys(Afr);
+    let ran = Math.floor(Math.random() * (max - min + 1)) + min;
+    var B = ran;
+    const chanceKey = D[B];
+    document.getElementById("demo").innerHTML = chanceKey;
+    var M = Afr[chanceKey];
+    document.getElementById("ans").innerHTML= M;
+     // window.alert(D);
+
+   }  
+   
+   else if(oc === "value3") {
+    var max = 13
+    var min = 0
+    var E = Object.keys(Ocen);
+    let ran = Math.floor(Math.random() * (max - min + 1)) + min;
+    var B = ran;
+    const chanceKey = E[B];
+    document.getElementById("demo").innerHTML = chanceKey;
+    var N = Ocen[chanceKey];
+    document.getElementById("ans").innerHTML= N;
+    // window.alert(max);
+
+
+   }  
+   
+   else if(oc === "value4") {
+    var max = 52
+    var min = 0
+    var F = Object.keys(Eur);
+    let ran = Math.floor(Math.random() * (max - min + 1)) + min;
+    var B = ran;
+    const chanceKey = F[B];
+    document.getElementById("demo").innerHTML = chanceKey;
+    var O = Eur[chanceKey];
+    document.getElementById("ans").innerHTML= O;
+    // window.alert(max);
+
+
+   }
+
+   else if(oc === "value5") {
+    var max = 43
+    var min = 0
+    var G = Object.keys(Asia);
+    let ran = Math.floor(Math.random() * (max - min + 1)) + min;
+    var B = ran;
+    const chanceKey = G[B];
+    document.getElementById("demo").innerHTML = chanceKey;
+    var P = Asia[chanceKey];
+    document.getElementById("ans").innerHTML= P;
+    // window.alert(max);
+
+   }
+
+   else if(oc === "value6") {
+    var max = 200
+    var min = 0
+    var H = Object.keys(Cap);
+    let ran = Math.floor(Math.random() * (max - min + 1)) + min;
+    var B = ran;
+    const chanceKey = H[B];
+    document.getElementById("demo").innerHTML = chanceKey;
+    var Q = Cap[chanceKey];
+    document.getElementById("ans").innerHTML= Q;
+    window.alert(max); 
+
+}
+
+
+
+
+
+
+  /*function random() {
+   
+            var radios = document.getElementsByName('inlineRadioOptions');
+
+            for (var i = 0; i < 6; i++) {
+                 if (radios[i].checked) {
+                    window.alert(i)
+                   }
+           window.alert(i)        
+                    }
+   }*/
+
+
+
+
+
+   
+            
+      // body...
+    
+    /*switch(i) {
+
+    case 0:
+      var  max = 34
+      var  p = Amer
+        break;
+    case 1:
+        max = 53
+        p = Afr
+        break;
+    case 2: 
+        max = 13
+        p = Ocen
+        break;
+    case 3:
+        max = 52
+        p = Eur
+        break;
+    case 4:
+        max = 43
+        p = Asia
+        break;
+   case 5:
+       max = 200
+       p =  Capitals
+        }
+window.alert(max)*/
+
+ 
+     
+
+     
+    
+     
+    // window.alert(C);
+    //const randomKey = C[143]
+       
+        
+}
+
+function answer() {
+    document.getElementById("ans").style.visibility = "visible";
+         
+}
+
+function clean() {
+ document.getElementById("demo").innerHTML = null;
+ document.getElementById("ans").innerHTML= null;
+ document.getElementById("ans").style.visibility = "hidden"; 
+}
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+
+
+
+</script>
+</html>
