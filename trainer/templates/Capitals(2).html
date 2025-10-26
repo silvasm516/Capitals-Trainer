@@ -12,7 +12,7 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-  
+  <link rel="shortcut icon" type="text/css" href="https://storage.cloud.google.com/capitals-trainer/star.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <!-- <link rel="stylesheet" href=https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css> --> 
@@ -36,7 +36,7 @@
     /* Add a gray background color and some padding to the footer */
     footer {
       background-color: #f2f2f2;
-      padding: 25px;
+      padding: 0,0,0,0px;
     }
     
   /*.carousel-inner img {
@@ -55,16 +55,26 @@
   /* .but {
     background-color: green;
   } */
+   #demo {
+    padding: 0,0,0,0;
+   }
 
+   #msg {
+    padding: 0,0,0,0;
+   }
+   
+   #bre {
+   padding: 0,0,0,0;
+   }
    #menhu {
-    background-color: lightgray;
+    background-color: lawngreen;
    }
   #myRadioForm {
     display: inline-block;  
   }
 
   #NuProj {
-    background-color:lightcoral;
+    background-color: white;
   }
 
 #op {
@@ -83,6 +93,8 @@
 }
  #ans {
   visibility: hidden;
+
+  padding: 0,0,0,0;
   }
 
   body {
@@ -91,7 +103,7 @@
 
 }
 
-.navbar {
+/*.navbar {
   overflow: hidden;
   background-color: #333;
 }
@@ -149,7 +161,7 @@
 
 .dropdown:hover .dropdown-content {
   display: block;
-}
+}*/
   </style>
 </head>
 <body>
@@ -181,23 +193,29 @@
 
   
 <div class="container text-center" id= "con1">    
-  <h1>Train Your Memory Of Geography</h1>
-  <h1>Name the Capital City</h1>
+  <h2>Train Your Memory Of Geography</h2>
+  <h2>Name the Capital City</h2>
   <p>For Each Nation That Appears Name The Capital</p></h3><br>
 </div>
 <div class="container text-center" id= "con2"> 
   <div class="row">
     <div class="col-sm-4">
-      <p><h5>Press Random For A Nation<h5></p>
-      <h3> <div>
-      <button type="button" onclick= "random()" class="but" id="Randm">Random</button>
+    <h3><div class="well">
+      <h2><label id="demo"></label></h2>
+    </div></h3> 
+    
+
+      <h2><label id="ans"></label></h2>
+       
+      <p><h5 id= "msg">Press Random To View A Nation<h5></p>
+      <div class="well">
+      <h3><button type="button" onclick= "random()" class="but" id="Randm">Random</button>
       <button type="button" onclick= "answer()" class="but">Answer</button>
-      <button type="button" onclick= "clean()" class="but" id="clear">Clear</button>
-      <p></p> 
-      <h3><p id="demo"></p><h3>
-      <!-- <br> -->
-      <h3><p id="ans"></p></h3>
-      </div><h3>
+      <button type="button" onclick= "clean()" class="but" id="clear">Clear</button></h3>
+      </div>
+      <!-- p></p> -->
+       
+      
         <br>
       <p id="op"></p>
     </div>
@@ -206,11 +224,14 @@
       
 </div>
 <div class="col-sm-7">
-  <div class="well" id = "NuProj">
-  <p><h1>Current Project<h1></p>
-  </div>
+  <div class="row">
+    <p></p>
+  </div> 
+  <!-- <div class="well" id = "NuProj"> -->
+   <!-- <p><h4></h4></p> -->
+  <!-- </div> --> 
   <div class="well" id="menhu">
-   <p>Train For (select region)<p>
+   <p>Train For (select region)</p>
     <form id="myRadioForm">
         <input type="radio" id="option1" name="myOptions" value="value1">
         <label for="option1">Americas</label>
@@ -226,20 +247,426 @@
         <label for="option6">World</label>
     </form>
    </div>
+   </div>
 </div>
-
+</div>
 <footer class="container-fluid text-center">
   <p>Footer Text</p>
 </footer>
-<script src= "Americas.js"></script>
-<script src= "Africa.js"></script>
-<script src="Oceania.js"></script>
-<script src="Europe.js"></script>
-<script src="Asia.js"></script>
-<script src="Capitals.js"></script>
+
 </body>
 
 <script>
+
+const Afr = {'Algeria':'Algiers',
+'Angola':'Luanda',
+'Benin':'Porto Novo',
+'Botswana':'Gaborone',
+'Burkina Faso':'Ouagadougou',
+'Burundi':'Gitega',
+'Cameroon':'Yaounde',
+'Cape Verde':'Praia',
+'Central African Republic':'Bangui',
+'Chad':'N Djamena',
+'Comoros':'Moroni',
+'Congo, Democratic Republic of the':'Kinshasa',
+'Congo, Republic of the':'Brazzaville',
+'Côte dIvoire (Ivory Coast)':'Yamoussoukro',
+'Djibouti':'Djibouti',
+'Egypt':'Cairo',
+'Equatorial Guinea':'Malabo',
+'Eritrea':'Asmara',
+'Eswatini (Swaziland)':'Mbabane',
+'Ethiopia':'Addis Ababa',
+'Gabon':'Libreville',
+'Gambia':'Banjul',
+'Ghana':'Accra',
+'Guinea':'Conakry',
+'Guinea-Bissau':'Bissau',
+'Kenya':'Nairobi',
+'Lesotho':'Maseru',
+'Liberia':'Monrovia',
+'Libya':'Tripoli',
+'Madagascar':'Antananarivo',
+'Malawi':'Lilongwe',
+'Mali':'Bamako',
+'Mauritania':'Nouakchott',
+'Mauritius':'Port Louis',
+'Morocco':'Rabat',
+'Mozambique':'Maputo',
+'Namibia':'Windhoek',
+'Niger':'Niamey',
+'Nigeria':'Abuja',
+'Rwanda':'Kigali',
+'Sao Tome and Principe':'Sao Tome',
+'Senegal':'Dakar',
+'Seychelles':'Victoria',
+'Sierra Leone':'Freetown',
+'Somalia':'Mogadishu',
+'South Africa':'Pretoria, Bloemfontein, Cape Town',
+'South Sudan':'Juba',
+'Sudan':'Khartoum',
+'Tanzania':'Dodoma',
+'Togo':'Lome',
+'Tunisia':'Tunis',
+'Uganda':'Kampala',
+'Zambia':'Lusaka',
+'Zimbabwe':'Harare'}
+
+
+const Amer= {'Antigua and Barbuda':'Saint Johns',
+'Argentina':'Buenos Aires',
+'Bahamas':'Nassau',
+'Barbados':'Bridgetown',
+'Belize':'Belmopan',
+'Bolivia':'La Paz ',
+'Brazil':'Brasilia',
+'Canada':'Ottawa',
+'Chile':'Santiago',
+'Colombia':'Bogota',
+'Costa Rica':'San Jose',
+'Cuba':'Havana',
+'Dominica':'Roseau',
+'Dominican Republic':'Santo Domingo',
+'Ecuador':'Quito',
+'El Salvador':'San Salvador',
+'Grenada':'Saint Georges',
+'Guatemala':'Guatemala City',
+'Guyana':'Georgetown',
+'Haiti':'Port au Prince',
+'Honduras':'Tegucigalpa',
+'Jamaica':'Kingston',
+'Mexico':'Mexico City',
+'Nicaragua':'Managua',
+'Panama':'Panama City',
+'Paraguay':'Asuncion',
+'Peru':'Lima',
+'Saint Kitts and Nevis':'Basseterre',
+'Saint Lucia':'Castries',
+'Saint Vincent and the Grenadines':'Kingstown',
+'Suriname':'Paramaribo',
+'Trinidad and Tobago':'Port of Spain',
+'United States':'Washington D.C.',
+'Uruguay':'Montevideo',
+'Venezuela':'Caracas'}
+
+const Ocen = {'Australia':'Canberra',
+'Federated States of Micronesia':'Palikir',
+'Fiji':'Suva',
+'Kiribati':'Tarawa Atoll',
+'Marshall Islands':'Majuro',
+'Nauru':'No official capital',
+'New Zealand':'Wellington',
+'Palau':'Ngerulmud',
+'Papua New Guinea':'Port Moresby',
+'Samoa':'Apia',
+'Solomon Islands':'Honiara',
+'Tonga':'Nukualofa',
+'Tuvalu':'Funafuti',
+'Vanuatu':'Port Vila'}
+
+const Eur = {'Albania':'Tirana (Tirane)',
+'Andorra':'Andorra la Vella',
+'Armenia':'Yerevan',
+'Austria':'Vienna',
+'Belarus':'Minsk',
+'Belgium':'Brussels',
+'Bosnia and Herzegovina':'Sarajevo',
+'Bulgaria':'Sofia',
+'Croatia':'Zagreb',
+'Cyprus':'Nicosia',
+'Czech Republic (Czechia)':'Prague',
+'Denmark':'Copenhagen',
+'England':'London',
+'Estonia':'Tallinn',
+'Finland':'Helsinki',
+'France':'Paris',
+'Georgia':'Tbilisi',
+'Germany':'Berlin',
+'Greece':'Athens',
+'Hungary':'Budapest',
+'Iceland':'Reykjavik',
+'Ireland':'Dublin',
+'Italy':'Rome',
+'Kosovo':'Pristina',
+'Latvia':'Riga',
+'Liechtenstein':'Vaduz',
+'Lithuania':'Vilnius',
+'Luxembourg':'Luxembourg',
+'Malta':'Valletta',
+'Moldova':'Chisinau',
+'Monaco':'Monaco',
+'Montenegro':'Podgorica',
+'Netherlands':'Amsterdam',
+'North Macedonia (Macedonia)':'Skopje',
+'Northern Ireland':'Belfast',
+'Norway':'Oslo',
+'Poland':'Warsaw',
+'Portugal':'Lisbon',
+'Romania':'Bucharest',
+'Russia':'Moscow',
+'San Marino':'San Marino',
+'Scotland':'Edinburgh',
+'Serbia':'Belgrade',
+'Slovakia':'Bratislava',
+'Slovenia':'Ljubljana',
+'Spain':'Madrid',
+'Sweden':'Stockholm',
+'Switzerland':'Bern',
+'Türkiye (Turkey)':'Ankara',
+'Ukraine':'Kiev',
+'United Kingdom':'London',
+'Vatican City':'Vatican City',
+'Wales':'Cardiff'}
+
+
+const Asia = {'Azerbaijan':'Baku',
+'Bahrain':'Manama',
+'Bangladesh':'Dhaka',
+'Bhutan':'Thimphu',
+'Brunei':'Bandar Seri Begawan',
+'Cambodia':'Phnom Penh',
+'China':'Beijing',
+'East Timor':'Dili',
+'India':'New Delhi',
+'Indonesia':'Jakarta',
+'Iran':'Tehran',
+'Iraq':'Baghdad',
+'Israel':'Jerusalem',
+'Japan':'Tokyo',
+'Jordan':'Amman',
+'Kazakhstan':'Astana',
+'Kuwait':'Kuwait City',
+'Kyrgyzstan':'Bishkek',
+'Laos':'Vientiane',
+'Lebanon':'Beirut',
+'Malaysia':'Kuala Lumpur',
+'Maldives':'Male',
+'Mongolia':'Ulaanbaatar',
+'Myanmar (Burma)':'Nay Pyi Taw',
+'Nepal':'Kathmandu',
+'North Korea':'Pyongyang',
+'Oman':'Muscat',
+'Pakistan':'Islamabad',
+'Palestine':'Jerusalem',
+'Philippines':'Manila',
+'Qatar':'Doha',
+'Saudi Arabia':'Riyadh',
+'Singapore':'Singapore',
+'South Korea':'Seoul',
+'Sri Lanka':'Sri Jayawardenapura Kotte',
+'Syria':'Damascus',
+'Taiwan':'Taipei',
+'Tajikistan':'Dushanbe',
+'Thailand':'Bangkok',
+'Turkmenistan':'Ashgabat',
+'United Arab Emirates':'Abu Dhabi',
+'Uzbekistan':'Tashkent',
+'Vietnam':'Hanoi',
+'Yemen':'Sanaa'}
+
+
+const Cap = {'Afghanistan' : 'Kabul',
+'Albania' : 'Tirana (Tirane)', 
+'Algeria' : 'Algiers',
+'Andorra' : 'Andorra la Vella',
+'Angola' : 'Luanda',
+'Antigua and Barbuda' : 'Saint Johns',
+'Argentina' : 'Buenos Aires',
+'Armenia' : 'Yerevan',
+'Australia' : 'Canberra',
+'Austria' : 'Vienna',
+'Azerbaijan' : 'Baku',
+'Bahamas' : 'Nassau',
+'Bahrain' : 'Manama',
+'Bangladesh' : 'Dhaka',
+'Barbados' : 'Bridgetown',
+'Belarus' : 'Minsk',
+'Belgium' : 'Brussels',
+'Belize' : 'Belmopan',
+'Benin' : 'Porto Novo',
+'Bhutan' : 'Thimphu',
+'Bolivia' : 'La Paz',
+'Bosnia and Herzegovina' : 'Sarajevo',
+'Botswana' : 'Gaborone',
+'Brazil' : 'Brasilia',
+'Brunei' : 'Bandar Seri Begawan',
+'Bulgaria' : 'Sofia',
+'Burkina Faso' : 'Ouagadougou',
+'Burundi' : 'Gitega',
+'Cambodia' : 'Phnom Penh',
+'Cameroon' : 'Yaounde',
+'Canada' : 'Ottawa',
+'Cape Verde' : 'Praia',
+'Central African Republic' : 'Bangui',
+'Chad' : 'NDjamena',
+'Chile' : 'Santiago',
+'China' : 'Beijing',
+'Colombia' : 'Bogota',
+'Comoros' : 'Moroni',
+'Congo, Democratic Republic of the' : 'Kinshasa',
+'Congo, Republic of the' : 'Brazzaville',
+'Costa Rica' : 'San Jose',
+'Côte d Ivoire (Ivory Coast)' : 'Yamoussoukro',
+'Croatia' : 'Zagreb',
+'Cuba' : 'Havana',
+'Cyprus' : 'Nicosia',
+'Czech Republic (Czechia)' : 'Prague',
+'Denmark' : 'Copenhagen',
+'Djibouti' : 'Djibouti',
+'Dominica' : 'Roseau',
+'Dominican Republic' : 'Santo Domingo',
+'East Timor' : 'Dili',
+'Ecuador' : 'Quito',
+'Egypt' : 'Cairo',
+'El Salvador' : 'San Salvador',
+'England' : 'London',
+'Equatorial Guinea' : 'Malabo',
+'Eritrea' : 'Asmara',
+'Estonia' : 'Tallinn',
+'Eswatini (Swaziland)' : 'Mbabane',
+'Ethiopia' : 'Addis Ababa',
+'Federated States of Micronesia' : 'Palikir',
+'Fiji' : 'Suva',
+'Finland' : 'Helsinki',
+'France' : 'Paris',
+'Gabon' : 'Libreville',
+'Gambia' : 'Banjul',
+'Georgia' : 'Tbilisi',
+'Germany' : 'Berlin',
+'Ghana' : 'Accra',
+'Greece' : 'Athens',
+'Grenada' : 'Saint Georges',
+'Guatemala' : 'Guatemala City',
+'Guinea' : 'Conakry',
+'Guinea-Bissau' : 'Bissau',
+'Guyana' : 'Georgetown',
+'Haiti' : 'Port au Prince',
+'Honduras' : 'Tegucigalpa',
+'Hungary' : 'Budapest',
+'Iceland' : 'Reykjavik',
+'India' : 'New Delhi',
+'Indonesia' : 'Jakarta',
+'Iran' : 'Tehran',
+'Iraq' : 'Baghdad',
+'Ireland' : 'Dublin',
+'Israel' : 'Jerusalem',
+'Italy' : 'Rome',
+'Jamaica' : 'Kingston',
+'Japan' : 'Tokyo',
+'Jordan' : 'Amman',
+'Kazakhstan' : 'Astana]',
+'Kenya' : 'Nairobi',
+'Kiribati' : 'Tarawa Atoll',
+'Kosovo' : 'Pristina',
+'Kuwait' : 'Kuwait City',
+'Kyrgyzstan' : 'Bishkek',
+'Laos' : 'Vientiane',
+'Latvia' : 'Riga',
+'Lebanon' : 'Beirut',
+'Lesotho' : 'Maseru',
+'Liberia' : 'Monrovia',
+'Libya' : 'Tripoli',
+'Liechtenstein' : 'Vaduz',
+'Lithuania' : 'Vilnius',
+'Luxembourg' : 'Luxembourg',
+'Madagascar' : 'Antananarivo',
+'Malawi' : 'Lilongwe',
+'Malaysia' : 'Kuala Lumpur',
+'Maldives' : 'Male',
+'Mali' : 'Bamako',
+'Malta' : 'Valletta',
+'Marshall Islands' : 'Majuro',
+'Mauritania' : 'Nouakchott',
+'Mauritius' : 'Port Louis',
+'Mexico' : 'Mexico City',
+'Moldova' : 'Chisinau',
+'Monaco' : 'Monaco',
+'Mongolia' : 'Ulaanbaatar',
+'Montenegro' : 'Podgorica',
+'Morocco' : 'Rabat',
+'Mozambique' : 'Maputo',
+'Myanmar (Burma)' : 'Nay Pyi Taw',
+'Namibia' : 'Windhoek',
+'Nauru' : 'No official capital',
+'Nepal' : 'Kathmandu',
+'Netherlands' : 'Amsterdam',
+'New Zealand' : 'Wellington',
+'Nicaragua' : 'Managua',
+'Niger' : 'Niamey',
+'Nigeria' : 'Abuja',
+'North Korea' : 'Pyongyang',
+'North Macedonia' : 'Skopje',
+'Northern Ireland' : 'Belfast',
+'Norway' : 'Oslo',
+'Oman' : 'Muscat',
+'Pakistan' : 'Islamabad',
+'Palau' : 'Ngerulmud',
+'Palestine' : 'Jerusalem',
+'Panama' : 'Panama City',
+'Papua New Guinea' : 'Port Moresby',
+'Paraguay' : 'Asuncion',
+'Peru' : 'Lima',
+'Philippines' : 'Manila',
+'Poland' : 'Warsaw',
+'Portugal' : 'Lisbon',
+'Qatar' : 'Doha',
+'Romania' : 'Bucharest',
+'Russia' : 'Moscow',
+'Rwanda' : 'Kigali',
+'Saint Kitts and Nevis' : 'Basseterre',
+'Saint Lucia' : 'Castries',
+'Saint Vincent and the Grenadines' : 'Kingstown',
+'Samoa' : 'Apia',
+'San Marino' : 'San Marino',
+'Sao Tome and Principe' : 'Sao Tome',
+'Saudi Arabia' : 'Riyadh',
+'Scotland' : 'Edinburgh',
+'Senegal' : 'Dakar',
+'Serbia' : 'Belgrade',
+'Seychelles' : 'Victoria',
+'Sierra Leone' : 'Freetown',
+'Singapore' : 'Singapore',
+'Slovakia' : 'Bratislava',
+'Slovenia' : 'Ljubljana',
+'Solomon Islands' : 'Honiara',
+'Somalia' : 'Mogadishu',
+'South Africa' : 'Pretoria',
+'South Korea' : 'Seoul',
+'South Sudan' : 'Juba',
+'Spain' : 'Madrid',
+'Sri Lanka' : 'Sri Jayawardenapura Kotte',
+'Sudan' : 'Khartoum',
+'Suriname' : 'Paramaribo',
+'Sweden' : 'Stockholm',
+'Switzerland' : 'Bern',
+'Syria' : 'Damascus',
+'Taiwan' : 'Taipei',
+'Tajikistan' : 'Dushanbe',
+'Tanzania' : 'Dodoma',
+'Thailand' : 'Bangkok',
+'Togo' : 'Lome',
+'Tonga' : 'Nukualofa',
+'Trinidad and Tobago' : 'Port of Spain',
+'Tunisia' : 'Tunis',
+'Türkiye (Turkey)' : 'Ankara',
+'Turkmenistan' : 'Ashgabat',
+'Tuvalu' : 'Funafuti',
+'Uganda' : 'Kampala',
+'Ukraine' : 'Kyiv or Kiev',
+'United Arab Emirates' : 'Abu Dhabi',
+'United Kingdom' : 'London',
+'United States' : 'Washington D.C.',
+'Uruguay' : 'Montevideo',
+'Uzbekistan' : 'Tashkent',
+'Vanuatu' : 'Port Vila',
+'Vatican City' : 'Vatican City',
+'Venezuela' : 'Caracas',
+'Vietnam' : 'Hanoi',
+'Wales' : 'Cardiff',
+'Yemen' : 'Sanaa',
+'Zambia' : 'Lusaka',
+'Zimbabwe' : 'Harare'}
 
 const radioForm = document.getElementById("myRadioForm");
 
@@ -281,6 +708,7 @@ function random() {
     else if(oc === "value2") {
     var max = 53
     var min = 0
+    //const Afr = "../../staticfiles/Africa.js"
     var D = Object.keys(Afr);
     let ran = Math.floor(Math.random() * (max - min + 1)) + min;
     var B = ran;
@@ -346,7 +774,7 @@ function random() {
     document.getElementById("demo").innerHTML = chanceKey;
     var Q = Cap[chanceKey];
     document.getElementById("ans").innerHTML= Q;
-    window.alert(max); 
+    // window.alert(max); 
 
 }
 
@@ -373,44 +801,7 @@ function random() {
 
    
             
-      // body...
-    
-    /*switch(i) {
-
-    case 0:
-      var  max = 34
-      var  p = Amer
-        break;
-    case 1:
-        max = 53
-        p = Afr
-        break;
-    case 2: 
-        max = 13
-        p = Ocen
-        break;
-    case 3:
-        max = 52
-        p = Eur
-        break;
-    case 4:
-        max = 43
-        p = Asia
-        break;
-   case 5:
-       max = 200
-       p =  Capitals
-        }
-window.alert(max)*/
-
- 
-     
-
-     
-    
-     
-    // window.alert(C);
-    //const randomKey = C[143]
+      
        
         
 }
