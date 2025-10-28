@@ -6,69 +6,48 @@
 
 
 <!DOCTYPE html>
-{% extends "base.html" %}
-
- 
-
-
 <html lang="en">
-
-<!-- <head>
+<head>
   <title>Capitals Trainer</title>
   <meta charset="utf-8">
+  <link rel="shortcut icon" type="text/css" href="https://storage.cloud.google.com/capitals-trainer/star.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
- 
+  <!-- <script type="text/javascript" src= "Africa.js"></script> -->
+  <link rel= "https://console.cloud.google.com/storage/browser/capitals-trainer/Africa.json">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <!-- <link rel="stylesheet" href=https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css> --> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
- </head>  
-<head>   
-{% block homStyle %}
+  <!-- <script src="https://storage.cloud.google.com/capitals-trainer/Africa.json" type="application/json"></script> -->
   <style>
    #con1 {
      background-color:lightgray;
      font-family: Arial;
-     
+     color: black;
  } 
- 
-    footer {
-      background-color: #f2f2f2;
-     /* padding: 0,0,0,0px;*/
-    }
-      
-   #demo {
-    /*padding: 0,0,0,0;*/
-   }
 
-   #msg {
-    /*padding: 0,0,0,0;*/
-   }
    
-   #bre {
-   /*padding: 0,0,0,0;*/
-   }
-   
-   #w {
-    background-color:lightblue;
-   }
+  
+
+  .but {
+    background-color: green;
+  } 
+
    #menhu {
-    background-color: lawngreen;
+    background-color: lightgray;
    }
-   
   #myRadioForm {
     display: inline-block;  
   }
 
   #NuProj {
-    background-color: white;
+    background-color:lightcoral;
   }
 
 #op {
   visibility: hidden;
-  /*padding: 0,0,0,0;*/
 }
 
   #clear{
@@ -83,56 +62,45 @@
 }
  #ans {
   visibility: hidden;
-
-  /*padding: 0,0,0,0;*/
   }
 
   body {
   font-family: Arial, Helvetica, sans-serif;
-  
-  background-color:white;
-  
-  
+  font-weight: bold;
+
 }
+.col-sm-4  {
+padding 0,0,0,0;
 
- 
- 
-</style>
-{% endblock %}
+}
+  </style>
+
+  `` 
 </head>
-
-{% block hom %}
 <body>
 
 
-        
- 
+
+
   
 <div class="container text-center" id= "con1">    
-  <h2>Train Your Memory Of Geography</h2>
-  <h2>Name the Capital City</h2>
-  <p>First, Select Category From Green-Field menu. 
-       Then Press Random/Answer Buttons</p></h3>
+  <h1>Train Your Memory Of Geography</h1>
+  <h1>Name the Capital City</h1>
+  <p>For Each Nation That Appears Name The Capital</p></h3><br>
 </div>
 <div class="container text-center" id= "con2"> 
   <div class="row">
     <div class="col-sm-4">
-    <h3><div class="well" id="w">
-      <h2><label id="demo"></label></h2>
-    </div></h3> 
-    
-
-      <h2><label id="ans"></label></h2>
-       
-      <p><h5 id= "msg"><h5></p>
-      <div class="well">
-      <h3><button type="button" onclick= "random()" class="but" id="Randm">Random</button>
+      <p><h5>Press Random For A Nation<h5></p>
+      <h3> <div>
+      <button type="button" onclick= "random()" class="but" id="Randm">Random</button>
       <button type="button" onclick= "answer()" class="but">Answer</button>
-      <button type="button" onclick= "clean()" class="but" id="clear">Clear</button></h3>
-      </div>
-      
-       
-      
+      <button type="button" onclick= "clean()" class="but" id="clear">Clear</button>
+      <p></p> 
+      <h3><p id="demo"></p><h3>
+      <!-- <br> -->
+      <h3><p id="ans"></p></h3>
+      </div><h3>
         <br>
       <p id="op"></p>
     </div>
@@ -141,14 +109,11 @@
       
 </div>
 <div class="col-sm-7">
-  <div class="row">
-    <p></p>
-  </div> 
-  <!-- <div class="well" id = "NuProj"> -->
-   <!-- <p><h4></h4></p> -->
-  <!-- </div> --> 
+  <div class="well" id = "NuProj">
+  <p><h1>Current Project<h1></p>
+  </div>
   <div class="well" id="menhu">
-   <p>Train For (select region)</p>
+   <p>Train For (select region)<p>
     <form id="myRadioForm">
         <input type="radio" id="option1" name="myOptions" value="value1">
         <label for="option1">Americas</label>
@@ -164,25 +129,19 @@
         <label for="option6">World</label>
     </form>
    </div>
-   </div>
-</div>
 </div>
 
- 
-  
+<footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer>
+<header Content-Type: text/javascript/>
+
+
+
+
 </body>
-{% endblock %} 
-<br> 
- <container class="container-fluid text-center"> 
  
-  <!-- {% include 'Footer98.html' %} -->
-   
-</container>
-
-<br>
-{% block scripts %}
 <script>
-
 const Afr = {'Algeria':'Algiers',
 'Angola':'Luanda',
 'Benin':'Porto Novo',
@@ -592,7 +551,6 @@ const Cap = {'Afghanistan' : 'Kabul',
 'Yemen' : 'Sanaa',
 'Zambia' : 'Lusaka',
 'Zimbabwe' : 'Harare'}
-
 const radioForm = document.getElementById("myRadioForm");
 
   radioForm.addEventListener('change', (event) => {
@@ -612,10 +570,7 @@ function random() {
     var max 
     var min;
     var oc = document.getElementById("op").innerHTML;   
-    // window.alert(oc);
-
-
-
+     window.alert(oc);
   
    if(oc === "value1") {
     var max = 34
@@ -633,7 +588,6 @@ function random() {
     else if(oc === "value2") {
     var max = 53
     var min = 0
-    //const Afr = "../../staticfiles/Africa.js"
     var D = Object.keys(Afr);
     let ran = Math.floor(Math.random() * (max - min + 1)) + min;
     var B = ran;
@@ -656,8 +610,6 @@ function random() {
     var N = Ocen[chanceKey];
     document.getElementById("ans").innerHTML= N;
     // window.alert(max);
-
-
    }  
    
    else if(oc === "value4") {
@@ -699,11 +651,14 @@ function random() {
     document.getElementById("demo").innerHTML = chanceKey;
     var Q = Cap[chanceKey];
     document.getElementById("ans").innerHTML= Q;
-    // window.alert(max); 
+    //window.alert(max); 
 
 }
-        
+
 }
+
+       
+
 
 function answer() {
     document.getElementById("ans").style.visibility = "visible";
@@ -719,6 +674,6 @@ function clean() {
 
 
 
+
 </script>
-{% endblock %}
 </html>

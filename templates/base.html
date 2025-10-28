@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-{% load static %}
+
 
 <html lang="en">
+{% load static %}
 <head>
   <title>Capitals Trainer</title>
   
   <style>
     #demo, #two, #three  {
-      font-weight: bold;
+      
     }
 </style>
 <head>
@@ -32,24 +33,6 @@
 </main>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
- 
  <!-- {% block FooterStyle %} {% endblock %} -->
 
   
@@ -62,7 +45,9 @@
 
 <br> 
 <footer>
- <!-- {% include 'Footer98.html' %}  -->
+ {% block Footer %} 
+ {% include 'Footer98.html' %}
+ {% endblock %}
 </footer>
 <br>
  
