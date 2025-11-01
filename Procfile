@@ -1,1 +1,1 @@
-web: gunicorn dub_decl_bal.wsgi --log-file -
+web: gunicorn Capitals_Trainer.wsgi --log-file -
