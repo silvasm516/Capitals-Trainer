@@ -58,7 +58,7 @@ ROOT_URLCONF = 'Capitals_Trainer.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR, 'Capitals_Trainer', 'templates', 'Capitals(2).html'],
+        'DIRS': [BASE_DIR, 'Capitals_Trainer', 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
